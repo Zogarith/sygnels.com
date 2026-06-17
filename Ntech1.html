@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosmic Odyssey</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+  <link rel="stylesheet" href="Ntech.css" />
+</head>
+<body>
+
+  <!-- Background Video -->
+    <img class="background-video" 
+     src="images/laz.jpg" />
+    
+  <!-- Title -->
+  <h1 class="event-title">The Lazarus Mission</h1>
+
+  <!-- Astronaut + Carousel Wrapper -->
+  <div class="astronaut-carousel">
+    
+    <!-- Astronaut above description -->
+    <div class="astronaut-container">
+      <img
+        class="astronaut-fly"
+        src="images/brand (1).png"
+        alt="Astronaut"
+        id="astronaut"
+      />
+    </div>
+
+    <!-- Carousel Container -->
+     <center>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="slide">
+          <h2>Description</h2>
+          <p>
+             An action-packed and thrilling event that tests memory, teamwork, and strategy, The Lazarus Mission takes participants on an adventurous journey through two challenging rounds. Combining sharp observation with a high-stakes race for survival, this event promises both excitement and intense competition as teams fight to complete their mission and return victorious.
+          </p>
+           
+</div>
+
+       
+       
+         <div class="slide">
+          <h2>Round 1</h2>
+           <h3>Planetary Reconnaissance</h3>
+           <P>Participants will be shown an image containing multiple objects. They'll get time to observe and memorize it. Questions will then be asked about the image's details.</P>
+        
+</div>
+
+         <div class="slide">
+          <h2>Round 2</h2>
+           <h3> Relativistic Race</h3>
+           <P>10 teams compete to reach a finishing line set at 30 steps. Each team rolls a dice to determine how many steps they can move forward. A correct answer moves them forward the full dice value, while a wrong answer moves them back 1 space as a penalty. The first team to reach the finish line wins!.</P>
+       
+      </div>
+        
+    
+        
+        <div class="slide">
+           
+          <h2>Contact</h2>
+          <p>
+            📞 	Santhosh - 74483 22033
+
+<br />
+            📞	Preethi - 9442158225
+          </p>
+         
+        </div>
+      </div>
+      
+    </div>
+    <a href="events.html" style="text-decoration: none;">"<button class="back-btn" onclick="history.back()">⬅</button></a>
+
+  </div>
+</center>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="Ntech.js"></script>
+
+</body>
+</html>
+<style>
+  
+
+
+.astronaut-fly {
+  position: absolute;
+  bottom: 340px;   /* hands align with box */
+  right: 70%;
+  transform: translateX(-50%);
+  width: 130px;
+  z-index: 1;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateX(-50%) translateY(0); }
+  50%  { transform: translateX(-50%) translateY(-5px); }  /* go up */
+  100% { transform: translateX(-50%) translateY(0); }      /* return down */
+}
+
+
+/* === CAROUSEL BOX === */
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 950px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 35px rgba(0, 234, 255, 0.6);
+  overflow: hidden;
+  margin-top: 120px; /* pushes box below astronaut’s body */
+  z-index: 2;
+}
+.back-btn {
+  display: block;
+  margin: 25px auto 0; /* places button below the box */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: #00eaff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.9);
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .event-title {
+    font-size: 1.4rem;
+    top: 4%;
+    
+  }
+
+
+/* === MOBILE PORTRAIT === */
+
+  /* Astronaut */
+.astronaut-fly {
+  position: absolute;
+  top:80px;
+  
+  right: 45%;
+  transform: translateX(-50%);
+  width: 90px;
+  z-index: 1; /* LOWER than box */  
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Carousel Box */
+.carousel-container {
+  position: relative;
+    bottom:80px;
+  width: 60%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 35px rgba(0, 234, 255, 0.6);
+  overflow: hidden;
+  margin-top: 220px;
+  margin-left: 3px;
+
+  z-index: 2;  /* HIGHER than astronaut */
+}
+.slide h2 {
+    font-size: 1.2rem;
+  }
+
+}
+</style>

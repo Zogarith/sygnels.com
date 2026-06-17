@@ -1,0 +1,187 @@
+
+@font-face {
+    font-family: "Deltha"; /* Name you'll use in CSS */
+    src: url("./fonts/Deltha-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "Deltha", sans-serif;
+}
+
+h1 {
+    font-family: "Deltha", serif;
+}
+h2{
+    font-family: "Deltha", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* === BACKGROUND === */
+.background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;   /* oversized so we have space to move */
+  min-height: 40%;
+  object-fit: cover;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  animation: driftVideo 60s linear infinite;
+}
+/* Keyframes to move the video slowly in a loop */
+@keyframes driftVideo {
+  0%   { transform: translate(-50%, -50%) translateX(0) translateY(0) scale(1.2); }
+  25%  { transform: translate(-50%, -50%) translateX(-3%) translateY(-2%) scale(1.25); }
+  50%  { transform: translate(-50%, -50%) translateX(-6%) translateY(0) scale(1.3); }
+  75%  { transform: translate(-50%, -50%) translateX(-3%) translateY(2%) scale(1.25); }
+  100% { transform: translate(-50%, -50%) translateX(0) translateY(0) scale(1.2); }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+/* === TITLE === */
+.event-title {
+  font-size: 3rem;
+  text-align: center;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  letter-spacing: 3px;
+
+  /* Softer Base Glow */
+  text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0, 200, 255, 0.3);
+
+  /* Softer Animation */
+  animation: subtleGlow 2.5s infinite alternate ease-in-out;
+  z-index: 5;
+}
+
+@keyframes subtleGlow {
+  0% { text-shadow: 0 0 5px #00eaff, 0 0 10px rgba(0, 200, 255, 0.25); }
+  100% { text-shadow: 0 0 10px #00eaff, 0 0 18px rgba(0, 200, 255, 0.4); }
+}
+
+
+
+/* === CENTER WRAPPER === */
+.astronaut-carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Astronaut aligned to box */
+
+.slide {
+   
+  text-align: center;
+  padding: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide h2 {
+  font-size: 2rem;
+  color: #00eaff;
+  margin-bottom: 15px;
+}
+
+.slide p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ffffff;
+   font-family:  "Palatino Linotype", "Palatino";
+}
+
+
+/* === CAROUSEL ARROWS === */
+.slick-prev, .slick-next {
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+}
+.slick-prev:before, .slick-next:before {
+  font-size: 35px;
+  color: #00eaff;
+}
+.slick-dots li button:before { color: #fff; }
+.slick-dots li.slick-active button:before { color: #00eaff; }
+
+
+/* === RESPONSIVE === */
+/* === MOBILE PORTRAIT (max-width: 480px) === */
+@media (max-width: 768px) and (orientation: portrait) {
+  
+  .slide p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 26px;
+  }
+}
+
+/* === MOBILE LANDSCAPE (max-width: 768px) === */
+@media (max-width: 768px) and (orientation: landscape) {
+  .event-title {
+    font-size: 1.8rem;
+    top: 5%;
+  }
+
+  .astronaut-fly {
+    width: 80px;
+    top: -55px; /* raise astronaut */
+  }
+
+  .carousel-container {
+    width: 70%;
+    padding: 12px;
+    margin-top: 80px; /* spacing in landscape */
+    max-width: 500px;
+  }
+
+  .slide h2 {
+    font-size: 1.1rem;
+  }
+
+  .slide p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px;
+  }
+} 

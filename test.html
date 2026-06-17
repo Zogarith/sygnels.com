@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONGRATULATIONS!!!</title>
+    <style>
+        body {
+            background-color: #00ff00;
+            /* Neon Green */
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff00ff;
+            /* Magenta */
+            font-size: 4rem;
+            text-shadow: 3px 3px 0px #ffff00;
+            animation: blink 0.5s infinite;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: blue;
+            font-weight: bold;
+        }
+
+        #prizeBtn {
+            padding: 20px 40px;
+            font-size: 2rem;
+            background-color: red;
+            color: white;
+            border: 5px dashed yellow;
+            cursor: pointer;
+            position: absolute;
+            transition: top 0.1s, left 0.1s;
+            /* Smooth-ish movement but fast */
+            font-family: inherit;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Fake error overlay */
+        #bsod {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0000aa;
+            color: white;
+            z-index: 9999;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 50px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>YOU ARE THE 1,000,000th VISITOR!!!</h1>
+    <p>Click the button below to claim your FREE iPhone 99!</p>
+
+    <button id="prizeBtn">CLAIM PRIZE NOW</button>
+
+    <div id="bsod">
+        <p>A fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36. The current application will be
+            terminated.</p>
+        <p>Press any key to continue _</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('prizeBtn');
+        const bsod = document.getElementById('bsod');
+
+        // Runaway logic
+        btn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - btn.clientWidth);
+            const y = Math.random() * (window.innerHeight - btn.clientHeight);
+
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        });
+
+        // Backup plan for mobile or lucky clicks
+        btn.addEventListener('click', () => {
+            bsod.style.display = 'block';
+            // Optional: Go "fullscreen" to be more annoying
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        });
+
+        // Initial random position just for fun
+        btn.style.left = '50%';
+        btn.style.top = '60%';
+        btn.style.transform = 'translate(-50%, -50%)';
+
+        // Remove transform on first hover so absolute positioning works easier
+        btn.addEventListener('mouseover', () => {
+            btn.style.transform = 'none';
+        }, { once: true });
+
+    </script>
+</body>
+
+</html>

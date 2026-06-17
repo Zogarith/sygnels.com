@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Events</title>
+    <link rel="stylesheet" href="planets.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo.png" type="image/icon type">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <img src="load.gif" alt="Loading...">
+  </div>
+ 
+   <div id="content" style="display:none;">
+    
+
+ <!-- TARS + Instructions Overlay -->
+<div class="tars-overlay" id="tarsOverlay">
+  <div class="tars-box">
+    <img src="images/tars.png" alt="TARS" class="tars-character">
+    <div class="tars-bubble">
+      <h2>INSTRUCTIONS</h2>
+      <ul>
+        <li> Each team can have a maximum of 3 members.
+</li>
+        <li> Individual registration is required for all participants.</li>
+        <li> Team members should use the <b>same team name</b>.</li>
+        <li> Two events will run simultaneously, so participants can join only one event.
+</li>
+        <li> Winners will be decided by judges appointed by the committee.
+
+</li>
+        <li> Decisions are <b>final and binding</b>.</li>
+        <li> Food and snacks will be provided 🍴.</li>
+       <li>E-certificates will be awarded to all participants.</li> 
+<li>Participants should be present at the venue on time as per the schedule.</li>
+<li> For any clarification or queries, please contact the organizers.</li>
+      </ul>
+      <button id="ackBtn">Acknowledge</button>
+    </div>
+  </div>
+</div>
+ </div>
+ <div class="header">
+  <div class="nav slide-in-blurred-top">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="sygnels-logo"></a>
+            </div>
+             <div class="hamburger">
+               <i class="fa fa-bars"></i>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="planets.html">EVENTS</a></li>
+                    <li><a href="index.html #about">ABOUT</a></li>
+                    <li><a href="index.html #contact">CONTACT</a></li>
+                    <li><a href="register.html">REGISTER</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    <main class="universe state-events">
+
+        <h1 class="main-title">EVENTS</h1>
+
+        <div class="orbit-container">
+            <img src="images/orbit.png" alt="Orbit Path">
+        </div>
+
+        <div class="planets-container">
+            <a href="events.html" class="planet" data-planet="events">
+                <img src="images/event_planet.jpg" alt="Events Planet">
+            </a>
+
+            <a href="special.html" class="planet" data-planet="special">
+                <img src="images/special_planet.jpg" alt="Special Events Planet">
+            </a>
+
+            <a href="workshop.html" class="planet" data-planet="workshop">
+                <img src="images/workshop_planet.jpg" alt="Workshop Planet">
+            </a>
+        </div>
+
+        <div class="side-label left" data-label-for="special">SPECIAL EVENTS</div>
+        <div class="side-label right" data-label-for="workshop">WORKSHOP</div>
+        <div class="side-label left" data-label-for="workshop">WORKSHOP</div>
+        <div class="side-label right" data-label-for="special">SPECIAL EVENTS</div>
+        <div class="side-label left" data-label-for="events">EVENTS</div>
+        <div class="side-label right" data-label-for="events">EVENTS</div>
+
+    </main>
+    <script src="planets.js"></script>
+</body>
+</html>
