@@ -1,0 +1,391 @@
+* {
+    cursor: url(cursor.png), default;
+}
+
+body,
+html,
+#root {
+    height: 100%;
+    width: 100%;
+    font-family: "Orbitron", sans-serif;
+    background: radial-gradient(circle at top, #080d25, #0b0322);
+    color: white;
+    overflow-x: hidden;
+    background: url('/cooperstation.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.popup {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+.upi-label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.info-btn {
+    background: #a1a1ba;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 30px;
+    width: 30px;
+}
+
+.popup-content {
+    background: #10131f;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    padding: 20px;
+}
+
+/* Image inside popup */
+.popup-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Close button */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 5rem;
+    color: #8f0303;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.close-popup:hover {
+    color: #ff5c5c;
+}
+
+
+input,
+select {
+    background-color: #0d1b2a;
+    color: #fff;
+    border: 1px solid #0d0916;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(45deg, #3c435d, #2E1F4C);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #52567b, #141731);
+    cursor: url(cursor.png), default;
+    transform: scale(1.05);
+    font-size: larger;
+    font-weight: bolder;
+
+
+}
+
+/* Form container normal style */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #091031;
+    border-radius: 18px;
+    border: 2px solid #201e31;
+    animation: fadeIn 1.2s ease-out;
+    position: relative;
+    overflow: hidden;
+    background-image: url('/cooperstation.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 5%, rgba(0, 0, 0, 0.8) 70%);
+    filter: blur(40px);
+    animation: blackHoleSpin 20s linear infinite;
+    z-index: 0;
+    opacity: 1;
+    border-radius: 50%;
+}
+
+@keyframes blackHoleSpin {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.05);
+    }
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(from 0deg,
+            #52478a 0deg 10deg,
+            transparent 10deg 20deg,
+            #1e174f 20deg 30deg,
+            transparent 30deg 40deg);
+    animation: warpTunnel 10s linear infinite;
+    z-index: 0;
+    opacity: 0.35;
+    border-radius: 50%;
+}
+
+@keyframes warpTunnel {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: rgb(231, 230, 236);
+    text-shadow: 1px 1px 1px #02062e;
+    font-size: 2rem;
+    z-index: 1;
+    position: relative;
+    animation: glow 2s infinite alternate;
+    font-family: deltha;
+}
+
+.background-video {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.background-video.active {
+    display: block;
+}
+
+select {
+    margin-top: 5px;
+}
+
+
+select option {
+    background-color: #0d1b2a;
+
+}
+
+select option:checked {
+    background-color: #1e3d59;
+    color: #112627;
+}
+
+input:focus,
+select:focus {
+    border-color: #0f272b;
+    box-shadow: 0 0 12px #284048;
+    transform: scale(1.03);
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ced2d4;
+    text-shadow: 1.5px 1.5px 1.5px #020427;
+    /* x-offset, y-offset, blur, color */
+    margin-bottom: 5px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+    position: relative;
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#participationImage {
+    display: none;
+    max-width: 200px;
+    margin-top: 15px;
+}
+
+#tnamediv {
+    width: 100%;
+    margin-top: 15px;
+    display: none;
+}
+
+
+#tnamediv input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: none;
+    /* hidden initially */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 20;
+}
+
+.video-overlay.active {
+    display: flex;
+}
+
+.video-overlay p {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding: 5%;
+}
+
+.video-overlay .button-link {
+    background-color: #393565;
+    padding: 12px 25px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.video-overlay .button-link:hover {
+    background-color: #8399c0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateBg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .qr-code {
+        width: 150px;
+    }
+
+    .form-container.video-playing {
+        background: transparent;
+        color: transparent;
+        opacity: 0.3;
+    }
+}

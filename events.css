@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/deltha');
+
+@font-face {
+   font-family: 'Deltha';
+    src: url('./fonts/Deltha.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-width: 350px;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Deltha', sans-serif;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+}
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -2;
+  background-image: url(images/tech.jpg);
+}
+.back-btn {
+  position: fixed;    
+  top: 50px;          
+  left: 40px;   
+  width: 40px;   
+  height: 40px;   
+ border-radius: 50%;
+  border: 2px solid rgba(249, 250, 250, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: #bec4c4;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(249, 249, 249, 0.6);
+  transition: all 0.3s ease-in-out;  
+}
+
+@keyframes fadeSlideshow {
+  0%, 40% { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.stars {
+  width: 1px;
+  height: 1px;
+  background: white;
+  position: absolute;
+  animation: animStar 50s linear infinite, twinkle 2s infinite alternate;
+  opacity: 0.8;
+  z-index: -1;
+}
+.stars:nth-child(2) {
+  box-shadow: 50px 200px white, 150px 600px white, 300px 1000px white,
+              500px 400px white, 700px 800px white, 900px 300px white,
+              1200px 900px white, 1400px 500px white, 1600px 700px white;
+}
+@keyframes animStar { from {transform: translateY(0);} to {transform: translateY(-2000px);} }
+@keyframes twinkle { from { opacity: 0.5; } to { opacity: 1; } }
+h1 { margin: 40px 0 20px 0; font-size: 2rem;}
+#nontech-title { margin: 40px 0 100px 0; font-size: 2rem;}
+.planets-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 60px 0; 
+}
+.planet-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%; 
+}
+.planet-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: rotatePlanet 20s linear infinite;
+  object-fit: cover;
+}
+.planet-name {
+  margin-top: 12px;
+  font-size: 1.3rem;
+}
+@keyframes rotatePlanet { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (min-width: 481px) {
+  .planet-row:nth-child(1) { text-align: left; }
+  .planet-row:nth-child(2) { text-align: right; margin-top: 250px; }
+  .planet-row:nth-child(3) { text-align: left; margin-top: 60px; }
+  .planet-row:nth-child(4) { text-align: right; margin-top: 250px; }
+}
+.endurance-img-container {
+  position: relative;
+  margin: 40px auto;
+  max-width: 500px;
+  width: 90%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.endurance-img { width: 100%; height: auto; z-index: 5; position: relative; }
+.astronaut {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  animation: bob 4s ease-in-out infinite;
+}
+.astronaut img { width: 110%; height: auto; }
+.astronaut-name { margin-top: 6px; margin-bottom: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; }
+.astronaut-top { top: -50px; left:25%; transform: translateX(-100%); }
+.astronaut-right { top:43%; right: -30px; transform: translateY(-50%); }
+.astronaut-bottom { bottom: -70px; left: 20%; transform: translateX(-50%); }
+.astronaut-left { top: 25%; left: -30px; transform: translateY(-50%); }
+@keyframes bob { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+
+
+@media (max-width: 375px) {
+  .planets-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .planet-row {
+    flex-basis: 100%;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .planet-img {
+    width: 100%;     
+    max-width: 320px;  
+    height: auto;      
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .planet-name {
+    font-size: 1.2rem;
+  }
+  .endurance-img {
+    display: none;
+  }
+  .endurance-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;    
+    margin: 20px auto;
+    gap: 20px;
+    width: 100%;
+    max-width: 340px;
+    box-sizing: border-box;
+  }
+  .astronaut {
+    position: relative !important;
+    width: 100%;
+    max-width: 320px;
+    margin: 10px 0;
+    animation: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .astronaut img {
+    width: 100%;  
+    height: auto;
+  }
+  .astronaut-name {
+    font-size: 1rem;
+    margin-top: 8px;
+    text-align: center;
+  }
+}
+@media (min-width: 375px) and (max-width: 768px) {
+  .planets-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px 20px;
+    max-width: 700px;
+  }
+  .planet-row {
+    flex-basis: 45%; 
+    margin-top: 40px;
+    text-align: center !important; 
+  }
+  .planet-img {
+    width: 180px;
+    height: 180px;
+  }
+  .planet-name {
+    font-size: 1.1rem;
+  }
+  .endurance-img-container {
+    max-width: 400px;
+    height: 360px;
+  }
+  .astronaut {
+    width: 200px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .planets-wrapper {
+    max-width: 900px;
+    gap: 50px 20px;
+  }
+  .planet-row {
+    flex-basis: 40%; 
+    margin-top: 50px;
+  }
+  .planet-img {
+    width: 190px;
+    height: 190px;
+  }
+  .planet-name {
+    font-size: 1.2rem;
+  }
+  
+  .endurance-img-container {
+    max-width: 450px;
+    height: 400px;
+  }
+  .astronaut {
+    width: 220px;
+  }
+}
+@media (min-width: 1025px) {
+  .planets-wrapper {
+    max-width: 1200px;
+    gap: 60px 40px;
+  }
+  .planet-row {
+    flex-basis: 45%;
+    margin-top: 0;
+  }
+  .planet-img {
+    width: 200px;
+    height: 200px;
+  }
+  .planet-name {
+    font-size: 1.3rem;
+  }
+  
+  .endurance-img-container {
+    max-width: 500px;
+    height: 420px;
+  }
+  .astronaut {
+    width: 250px;
+  }
+}

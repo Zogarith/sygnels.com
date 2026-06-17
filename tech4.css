@@ -1,0 +1,233 @@
+@import url('https://fonts.cdnfonts.com/css/deltha');
+@font-face {
+  font-family: 'Deltha';
+    src: url('./fonts/Deltha.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.eventname h1,
+.description h2 {
+  font-family: 'Deltha', sans-serif;
+}
+.description p{
+      font-family:  "Palatino Linotype", "Palatino";
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Futura, sans-serif;
+  overflow-x: hidden;
+  color: ivory;
+  background: #000;
+  cursor: url(cursor.png), default;
+}
+
+/* Background video */
+.background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.eventname h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #d5ecf7;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+  margin-top: 40px;
+
+  text-shadow: 0 0 6px rgba(200, 240, 255, 0.6),
+    0 0 12px rgba(100, 200, 255, 0.4);
+}
+
+.about {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 230, 230, 0.25);
+  border-radius: 12px;
+  padding: 30px 40px;
+  margin: 50px auto;
+  max-width: 1000px;
+  text-align: justify;
+}
+
+.description h2 {
+  font-size: 20px;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  margin-top: 5px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(0, 230, 230, 0.3);
+}
+
+.description p {
+  padding: 10px 0;
+  line-height: 1.6;
+  color: #d6f7ff;
+
+  text-shadow: 0 0 4px rgba(150, 220, 255, 0.2);
+}
+
+button {
+  font-family: Orbitron, sans-serif;
+  padding: 14px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 1px solid rgba(206, 134, 19, 0.5);
+  border-radius: 50px;
+  color: #d6f7ff;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: url(cursor.png), default;
+  margin-top: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: rgba(140, 149, 7, 0.1);
+  color: #da9e4a;
+  text-shadow: 0 0 6px rgba(244, 249, 100, 0.5);
+}
+.contact {
+        white-space: normal;
+        /* allow wrapping */
+    }
+
+@media (max-width: 768px) {
+  .eventname h1 {
+    font-size: 28px;
+    letter-spacing: 8px;
+  }
+
+  .description h2 {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .about {
+    padding: 20px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 575.98px) {
+      body {
+          padding: 10px;
+      }
+
+      .eventname {
+          font-size: 20px;
+          letter-spacing: 4px;
+          margin-top: 15px;
+      }
+
+      .about {
+          padding: 10px 15px;
+          margin: 20px auto;
+      }
+
+      .description h2 {
+          font-size: 18px;
+          letter-spacing: 2px;
+      }
+
+      .description p {
+          font-size: 14px;
+          text-align: left;
+      }
+
+      button {
+          padding: 8px 20px;
+          font-size: 16px;
+          letter-spacing: 2px;
+          max-width: 220px;
+      }
+      .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+           
+        }
+
+  }
+
+  @media (max-width: 375px) {
+      .eventname {
+          font-size: 15px;
+          letter-spacing: 2px;
+          text-align: center;
+          
+      }
+
+      .description h2 {
+          font-size: 16px;
+      }
+
+      .description p {
+          font-size: 13px;
+      }
+
+      button {
+          padding: 8px 15px;
+          font-size: 14px;
+      }
+      .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+           
+        }
+
+  }
+
+  @media (min-width: 1600px) {
+      .container {
+          max-width: 1400px;
+      }
+
+      .about {
+          max-width: 1100px;
+      }
+
+      .eventname {
+          font-size: 40px;
+      }
+
+      .description h2 {
+          font-size: 30px;
+      }
+
+      .description p {
+          font-size: 18px;
+      }
+  }

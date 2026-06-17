@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="workshop.css">
+</head>
+
+<body>
+  <!-- Background Video -->
+  <video id="bgVideo" autoplay muted loop class="background-video">
+    <source src="images/cooperstation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <div class="back">
+      <a href="planets.html" style="text-decoration: none;">
+        <button><i class="fa-solid fa-arrow-left"></i> BACK TO BASE</button>
+      </a>
+    </div>
+    <div class="title">
+      <h2>WORKSHOP</h2>
+    </div>
+
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="carousel__track">
+        <div class="carousel__slide active">
+          <h3>PCB DESIGNING</h3>
+          <p>
+          <ul>
+            <li> Gain hands-on experience in transforming circuit ideas into fabrication ready circuits.</li>
+
+            <li>Learn the fundamentals of PCB design including schematic creation and component placement.</li>
+
+            <li> Understand routing techniques and best practices using industry-standard design software.</li>
+
+            <li> Explore design rules, simulation, and fabrication processes to make boards production-ready.</li>
+
+            <li>Get step-by-step knowledge of the workflow from concept to manufacturing.</li>
+
+            <li>By the end, you’ll be able to:
+
+              Design and develop your own PCB from scratch.
+
+            </li>
+          </ul>
+          </p>
+        </div>
+        <div class="carousel__slide">
+          <h3>ABOUT THE RESOURCE PERSON</h3>
+          <p>Mr.S.SURESH M.E</p>
+          <img src="images/resource.png" alt="Resouce Person" class="img">
+          <p>He is currently working as the Manager in Project and Training Department at Vi Microsystems Pvt.Ltd.,
+            Perungudi, Chennai.He has more than 20 years of experience in the field of embedded system and he is a
+            expert in PCB Designing. </p>
+        </div>
+        <div class="carousel__slide">
+          <h3>PRE-REQUIREMENTS</h3>
+          <p>All participants are requested to pre-install KiCad 9.0 which is available at
+            <a href="https://www.kicad.org/" style="text-decoration: none;color: #00e6ff;">https://www.kicad.org/</a> in your laptops prior to the workshop.
+          </p>
+          <p>You should understand the basics of series and parallel connections, biasing, and power supply fundamentals.</p>
+          <p>You should be able to interpret and analyze simple circuit diagrams.</p>
+          <p>You should have a clear understanding of how to test and verify a circuit virtually using simulation tools.</p>
+
+        </div>
+        <div class="carousel__slide">
+          <h3>SCHEDULE</h3>
+          <p>
+            <i class="fa-solid fa-calendar-days"></i> &nbsp;Date: 15 October 2025
+          </p>
+
+          <p>
+            <i class="fa-duotone fa-solid fa-clock"></i> &nbsp;Time: 09.00 AM - 04.00 PM
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> &nbsp;Venue : Murugappa Hall
+          </p>
+          <p>
+            <i class="fa-solid fa-utensils"></i> &nbsp;Snacks and Lunch will be provided.
+          </p>
+          <p>
+            <i class="fa-regular fa-file"></i> &nbsp;E-Certificates will be provided
+          </p>
+        </div>
+        <div class="carousel__slide">
+          <h3>CONTACT</h3>
+          <p>
+            <i class="fa-solid fa-phone"></i> &nbsp;Saravanavel - +91 9894657933
+          </p>
+          <p>
+            <i class="fa-solid fa-phone"></i> &nbsp;Naveena - +91 7715969799
+          </p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel__btn prev">&#10094;</button>
+      <button class="carousel__btn next">&#10095;</button>
+
+      <!-- Dots -->
+      <div class="carousel__dots"></div>
+    </div>
+
+    <!-- Register Button -->
+    <div class="register">
+      <a href="register.html" style="text-decoration: none;">
+       <button>JOIN CREW</button>
+      </a>
+    </div>
+    
+  </div>
+
+  <script>
+    // Background video speed
+    const video = document.getElementById("bgVideo");
+    video.playbackRate = 0.6;
+
+    // Carousel
+    const slides = document.querySelectorAll(".carousel__slide");
+    const dotsContainer = document.querySelector(".carousel__dots");
+    const prevBtn = document.querySelector(".carousel__btn.prev");
+    const nextBtn = document.querySelector(".carousel__btn.next");
+
+    let currentIndex = 0;
+    let interval;
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".carousel__dots button");
+
+    function updateSlides() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active", "prev", "next");
+        if (i === currentIndex) {
+          slide.classList.add("active");
+        } else if (i === (currentIndex - 1 + slides.length) % slides.length) {
+          slide.classList.add("prev");
+        } else if (i === (currentIndex + 1) % slides.length) {
+          slide.classList.add("next");
+        }
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlides();
+      resetAutoplay();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlides();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlides();
+    }
+
+    function startAutoplay() {
+      interval = setInterval(nextSlide, 4000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(interval);
+      startAutoplay();
+    }
+
+    // Button events
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoplay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoplay();
+    });
+
+    // Swipe support
+    let startX = 0;
+    const carousel = document.getElementById("carousel");
+
+    carousel.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener("touchend", (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) { // swipe left
+        nextSlide();
+        resetAutoplay();
+      } else if (endX - startX > 50) { // swipe right
+        prevSlide();
+        resetAutoplay();
+      }
+    });
+
+    // Init
+    updateSlides();
+    startAutoplay();
+  </script>
+</body>
+
+</html>

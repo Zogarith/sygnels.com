@@ -1,0 +1,383 @@
+    @import url('https://fonts.cdnfonts.com/css/deltha');
+    
+    @font-face {
+        font-family: 'Deltha';
+    src: url('./fonts/Deltha.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .eventname h1,
+    .description h2 {
+        font-family: 'Deltha', sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-image: url("images/millerback.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: ivory;
+        font-family: 'Futura', sans-serif;
+        animation: spaceMotion 20s linear infinite;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        padding: 20px;
+        cursor: url(cursor.png), default;
+    }
+
+    @keyframes spaceMotion {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: 90% 90%;
+        }
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .eventname {
+        font-size: 25px;
+        font-weight: 400;
+        letter-spacing: 12px;
+        color: ivory;
+        text-align: center;
+        margin-top: 40px;
+        text-shadow: 0 0 15px rgba(35, 18, 18, 0.5);
+        padding: 0 15px;
+    }
+
+    .description {
+        padding: 10px 20px;
+        text-align: justify;
+        line-height: 1.6;
+        color: #e6f7ff;
+    }
+.description p{
+      font-family:  "Palatino Linotype", "Palatino";
+}
+    .description h2 {
+        font-size: 20px;
+        letter-spacing: 6px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        margin-top: 15px;
+    }
+
+    .about {
+        text-align: center;
+        margin: 60px auto;
+        max-width: 1000px;
+        padding: 20px 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 10;
+    }
+
+    .register {
+        text-align: center;
+        margin-top: 60px;
+        position: relative;
+        z-index: 10;
+        padding: 0 15px;
+    }
+
+    button {
+        font-family: Orbitron, sans-serif;
+        padding: 14px 40px;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        border: 2px solid rgba(3, 63, 63, 0.8);
+        border-radius: 50px;
+        color: ivory;
+        background: rgba(0, 0, 0, 0.8);
+        cursor:url(cursor.png), default;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 0 12px rgba(0, 230, 230, 0.6),
+            0 0 30px rgba(0, 230, 230, 0.4) inset;
+
+    }
+
+    button:hover {
+        background: rgba(0, 230, 230, 0.1);
+        color: #012431;
+        box-shadow: 0 0 20px rgba(25, 98, 98, 0.9),
+            0 0 40px rgba(40, 123, 123, 0.7) inset;
+        transform: scale(1.1);
+    }
+
+    .contact {
+        white-space: normal;
+        /* allow wrapping */
+    }
+
+    /* Interstellar elements */
+    .endurance {
+        position: absolute;
+        top: 15%;
+        right: -200px;
+        width: 120px;
+        height: 120px;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+        animation: flyEndurance 25s linear infinite;
+        z-index: 1;
+    }
+
+    .endurance:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .endurance:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 100px;
+        height: 100px;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+
+
+    /* Animations */
+    @keyframes flyEndurance {
+        0% {
+            right: -200px;
+            top: 15%;
+        }
+
+        100% {
+            right: 100%;
+            top: 70%;
+        }
+    }
+
+    /* Responsive adjustments */
+    /* Large devices (desktops, less than 1200px) */
+    @media (max-width: 1199.98px) {
+        .about {
+            max-width: 900px;
+        }
+    }
+
+    /* Medium devices (tablets, less than 992px) */
+    @media (max-width: 991.98px) {
+        .eventname {
+            font-size: 30px;
+            letter-spacing: 8px;
+            margin-top: 30px;
+        }
+
+        .about {
+            max-width: 700px;
+            padding: 20px 30px;
+            margin: 40px auto;
+        }
+
+        .description h2 {
+            font-size: 22px;
+            letter-spacing: 4px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 20px;
+        }
+        .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+            
+        }
+    }
+
+    /* Small devices (landscape phones, less than 768px) */
+    @media (max-width: 767.98px) {
+        body {
+            animation: spaceMotion 30s linear infinite;
+        }
+
+        .eventname {
+            font-size: 24px;
+            letter-spacing: 6px;
+            margin-top: 20px;
+        }
+
+        .about {
+            max-width: 90%;
+            padding: 15px 20px;
+            margin: 30px auto;
+        }
+
+        .description {
+            padding: 5px 10px;
+            line-height: 1.5;
+        }
+
+        .description h2 {
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            font-size: 15px;
+           
+        }
+
+        .register {
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            max-width: 250px;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+        }
+    }
+
+
+
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 575.98px) {
+        body {
+            padding: 10px;
+        }
+
+        .eventname {
+            font-size: 20px;
+            letter-spacing: 4px;
+            margin-top: 15px;
+        }
+
+        .about {
+            padding: 10px 15px;
+            margin: 20px auto;
+        }
+
+        .description h2 {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .description p {
+            font-size: 14px;
+            text-align: left;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            max-width: 220px;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+            text-align: center;
+        }
+    }
+
+    /* Very small devices (small phones) */
+    @media (max-width: 375px) {
+        .eventname {
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .description h2 {
+            font-size: 16px;
+        }
+
+        .description p {
+            font-size: 13px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            /* stack them vertically */
+            gap: 5px;
+            /* small spacing instead of big blank */
+           
+        }
+
+    }
+
+    /* Large screens */
+    @media (min-width: 1600px) {
+        .container {
+            max-width: 1400px;
+        }
+
+        .about {
+            max-width: 1100px;
+        }
+
+        .eventname {
+            font-size: 40px;
+        }
+
+        .description h2 {
+            font-size: 30px;
+        }
+
+        .description p {
+            font-size: 18px;
+        }
+    }

@@ -1,0 +1,117 @@
+<script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                    headerRowIndex = 0;
+                }
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Atlas Form</title>
+    <link rel="stylesheet" href="./register.css">
+</head>
+
+
+<body>
+    <div class="form-container">
+        <h1>Launch Protocol</h1>
+        <form id="dataForm">
+
+            <label for="Member1">Name <b class="star">*</b></label>
+            <input type="text" name="Member1" id="Member1" required />
+
+            <label for="Phone">Contact Number <b class="star">*</b></label>
+            <input type="tel" name="Phone" id="Phone" required />
+
+            <label for="email">Email ID <b class="star">*</b></label>
+            <input type="email" name="email" id="email" required />
+
+            <label for="college">College Name <b class="star">*</b></label>
+            <input type="text" name="college" id="college" required />
+
+            <label for="Participation">Participation Category <b class="star">*</b></label>
+            <select name="Participation" id="Participation" required>
+                <option value="" disabled selected hidden style="color:#1a506c">Select</option>
+                <option value="Event">Event</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Both Event and Workshop">Both Event and Workshop</option>
+            </select>
+            <div class="" id="tnamediv">
+                <label for="Teamname">Team Name <b class="star">*</b></label><br>
+                <input type="text" style="width: 100%; margin-bottom: 30px;" name="Teamname" id="Teamname" />
+                <label for="splevent" >Are You Participating in Special Event? <b class="star">*</b></label><br>
+                <select name="splevent"  style="width: 100%; " id="splevent" >
+                    <option value="" disabled selected hidden style="color:#1a506c">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="image-container">
+                <img id="participationImage" alt="Participation Image">
+            </div>
+            <label for="accomadation">Do you need Accomadation <b class="star">*</b></label>
+            <select name="accomadation" id="accomadation" required>
+                <option value="" disabled selected hidden style="color:#1a506c">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <div class="upi-label-container">
+                <label for="upi">Transaction Id*</label>
+                <img src="/questionmark.jpg" alt="" class="info-btn" id="info-btn">
+            </div>
+            <input type="text" name="upi" id="upi" required>
+
+            <div class="popup" id="infoPopup" >
+                <center>
+                    <div class="popup-content">
+                        <span class="close-popup" id="closePopup">&times;</span>
+                        <img src="/upiimage.jpg" alt="UPI Info">
+                    </div>
+                </center>
+            </div>
+            
+            <button type="submit" id="submitBtn" style="display: none;">Ignite Thrusters</button>
+        </form>
+        <video id="backgroundVideo" class="background-video" muted playsinline>
+            <source src="/regback.mp4" type="video/mp4" />
+        </video>
+        <div id="videoOverlay" class="video-overlay">
+            <p>Thank you! Your registration has been successfully submitted. You will receive a confirmation mail within
+                24 hrs</p>
+            <a href="index.html" class="button-link">Go Back to Home</a>
+        </div>
+    </div>
+    <script src="./register.js"></script>
+</body>
+
+</html>
